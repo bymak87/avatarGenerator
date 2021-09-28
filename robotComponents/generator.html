@@ -1,0 +1,136 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Avatar Generator</title>
+
+        <script>
+            window.onload = function() 
+            {
+                //NECK
+                var robotNeck = new Image();
+                var robotNeckNum = Math.floor(Math.random() * 10) + 1;
+                var robotNeckName = "neck" +robotNeckNum + ".png";
+                robotNeck.src = robotNeckName;
+
+                //draw neck when image is loaded
+                robotNeck.onload = function(){
+                    buildRobot();
+                }
+                //EARS
+                var robotEars = new Image();
+                var robotEarsNum = Math.floor(Math.random() * 10) + 1;
+                var robotEarsName = "ears" +robotEarsNum + ".png";
+                robotEars.src = robotEarsName;
+
+                //draw ears when image is loaded
+                robotEars.onload = function(){
+                    buildRobot();
+                }
+
+                //ANTENNA
+                var robotAntenna = new Image();
+                var robotAntennaNum = Math.floor(Math.random() * 10) + 1;
+                var robotAntennaName = "antenna" +robotAntennaNum + ".png";
+                robotAntenna.src = robotAntennaName;
+
+                //draw antenna when image is loaded
+                robotAntenna.onload = function(){
+                    buildRobot();
+                }
+
+                //HEAD
+                var robothead = new Image();
+                //Change the number to the number of images you have
+                var robotheadnum = Math.floor(Math.random() * 10) + 1;
+                //gernate random number between 1 and 10 to find that head image
+                var robotheadname = "head" + robotheadnum + ".png";
+                robothead.src = robotheadname;
+                
+                //draw head when the image is loaded
+                robothead.onload = function()
+                {
+                    buildRobot();
+                }
+
+                //EYES
+                var robotEyes = new Image();
+                var robotEyesNum = Math.floor(Math.random() * 10) + 1;
+                var robotEyesName = "eyes" + robotEyesNum + ".png";
+                robotEyes.src = robotEyesName;
+                
+                //draw eyes when the image is loaded
+                robotEyes.onload = function()
+                {
+                    buildRobot();
+                }
+
+                //MOUTH
+                var robotMouth = new Image();
+                var robotMouthNum = Math.floor(Math.random() * 10) + 1;
+                var robotMouthName = "mouth" + robotMouthNum + ".png";
+                robotMouth.src = robotMouthName;
+
+                //draw mouth when the image is loaded
+                robotMouth.onload = function(){
+                    buildRobot();
+                }
+
+                //NOSE
+                var robotNose = new Image();
+                var robotNoseNum = Math.floor(Math.random() * 10) + 1;
+                var robotNoseName = "nose" + robotNoseNum + ".png";
+                robotNose.src = robotNoseName;
+
+                //draw nose when the image is loaded
+                robotNose.onload = function(){
+                    buildRobot();
+                }
+                
+                function buildRobot()
+                {
+                    var canvas = document.getElementById("canvas");
+                    var ctx = canvas.getContext("2d");
+                    //make sure dimensions match the image size
+                    canvas.width = 400;
+                    canvas.height = 400;
+
+                    //Random background color
+                    var r = Math.floor(Math.random() * (255 - 100 + 1) + 100);
+                    var g = Math.floor(Math.random() * (255 - 100 + 1) + 100);
+                    var b = Math.floor(Math.random() * (255 - 100 + 1) + 100);
+                    var bgColor = "#" + r.toString(16) + g.toString(16) + b.toString(16);
+                    ctx.fillStyle = bgColor;
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    //Draw all body parts, centered on the canvas
+                    //draw neck
+                    ctx.drawImage(robotNeck, ((400-robotNeck.width)/2), 320);
+                    //draw ears
+                    ctx.drawImage(robotEars, ((400-robotEars.width)/2), 110);
+                    //draw antenna
+                    ctx.drawImage(robotAntenna, ((400-robotAntenna.width)/2), 20);
+                    //draw the head
+                    ctx.drawImage(robothead, ((400-robothead.width)/2), 80);
+                    //draw the eyes 
+                    ctx.drawImage(robotEyes, ((400-robotEyes.width)/2), 150);
+                    //draw the mouth
+                    ctx.drawImage(robotMouth, ((400-robotMouth.width)/2), 250);
+                    //draw the nose
+                    ctx.drawImage(robotNose, ((400-robotNose.width)/2), 220);
+                }
+            }
+
+        </script>
+    </head>
+
+    <body>
+        
+        <div align="center">
+            <canvas id="canvas" style="border: 5px solid #000000;" width="400" height="400"></canvas>
+            <br>
+            <br>
+            <button onClick="window.location.reload();">Generate Robot</button>
+
+        </div>
+    </body>
+</html>
